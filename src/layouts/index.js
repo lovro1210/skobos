@@ -17,11 +17,13 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'Skobos' },
       ]}
     />
-    <Header />
-    <div>
-      {children()}
+    <div className="container">
+      <Header />
+      <main>
+        {children()}
+      </main>
+      <Footer/>
     </div>
-    <Footer/>
   </div>
 )
 
