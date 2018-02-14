@@ -3,7 +3,11 @@ import Link from 'gatsby-link'
 
 const Footer = () => (
   <div>
-    TEST
+    <div className="columns">
+  <div className="column is-four-fifths">is-four-fifths</div>
+  <div className="column">Auto</div>
+  <div className="column">Auto</div>
+</div>
   </div>
 )
 
