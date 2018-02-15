@@ -6,33 +6,33 @@ const Header = () => (
     <header>
       <div className="header">    
         <div className="header__brand">  
-          <Link className="h-branditem" to="/">
+          <Link className="" to="/">
             SKOBOS
           </Link>
         </div>
         <div className="header__menu"> 
-          <div className="header__menu-item"> 
-          <Link className="" to="/products/">
+          <div className="menu-item"> 
+          <Link className="" to="/products" activeStyle={{ color: '#DE1933' }}>
             Products
           </Link>
           </div>
-          <div className="header__menu-item"> 
-          <Link className="" to="/candidates">
+          <div className="menu-item"> 
+          <Link className="" to="/candidates" activeStyle={{ color: '#DE1933' }}>
             Candidates
           </Link>
           </div>
-          <div className="header__menu-item"> 
-          <Link className="" to="/howitworks">
+          <div className="menu-item"> 
+          <Link className="" to="/howitworks" activeStyle={{ color: '#DE1933' }}>
             How it works
           </Link>
           </div>
-          <div className="header__menu-item"> 
-          <Link className="" to="/aboutus">
+          <div className="menu-item"> 
+          <Link className="" to="/aboutus" activeStyle={{ color: '#DE1933' }}>
             About us
           </Link>
           </div>
-          <div className="header__menu-item"> 
-          <Link className="" to="/contact">
+          <div className="menu-item"> 
+          <Link className="" to="/contact" activeStyle={{ color: '#DE1933' }}>
             Contact
           </Link>
           </div>

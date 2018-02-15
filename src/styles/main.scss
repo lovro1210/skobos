@@ -1,9 +1,11 @@
 @import 'variables';
 @import "../../node_modules/sass-bem/_bem";
 @import '../../node_modules/mq-sass/stylesheets/_mq-sass';
-@import "../../node_modules/bulma/sass/utilities/mixins";
-@import "../../node_modules/bulma/sass/grid/all";
 
+body{
+    font-family: $font;
+    color: $color-text;
+}
 
 .container{
     width: 100%;
@@ -27,16 +29,8 @@ footer{
 main{
     width: 100%;
     grid-row: 2/3;    
-    background-color: lightgreen;
+    background-color: white;
     // flex: 200px 1 1;
 }
-
-/*.h-branditem{
-    flex: 1 4 50%;
-}
-
-.h-item{
-    flex: 1 1 10%;
-}*/
 
 @import '../components/Header/header.scss';
