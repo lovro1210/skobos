@@ -1,0 +1,68 @@
+/**
+ * Application Colors
+ * All Colors for application
+ *
+ */
+$palette-primary: #DE1933; 
+$palette-secondary: #07B551;
+$palette-tertiary: #333333;
+
+$color-text: #333333;
+$color-text-light: #666666;
+
+/*
+$color-text-link: ;
+$color-text-link-hover: ;
+$color-text-link-visited: ;
+$color-text-link-active: ;
+*/
+
+
+/*------------------------------------*\
+    #TYPOGRAPHY
+\*------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext');
+
+$font : "Nunito Sans", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+$font-secondary : "Montserrat", Georgia, Times, "Times New Roman", serif;
+
+$font-size-smallest: 10px;  //625rem
+$font-size-small : 12px; //0.75rem
+$font-size-small-1 : 13px; //0.8175rem
+$font-size-small-2 : 14px; //0.875rem
+$font-size-med : 16px; //1rem
+$font-size-med-2: 18px; //1.0625rem
+$font-size-large : 24px; //1.4375rem
+$font-size-huge : 32px;
+
+
+/**
+ * Spacing Defaults
+ */  
+ $pad : 8px;
+ $pad-half : $pad/2;
+ $pad-one-quarter: $pad/4;
+ $pad-one-and-half : $pad*1.5;
+ $pad-double : $pad*2;
+ $pad-triple : $pad*3;
+ $pad-quad :$pad*4;
+
+
+ /*------------------------------------*\
+    #BORDERS
+\*------------------------------------*/
+
+/**
+ * Border Width
+ */
+$border-xs: 1px;
+$border-s: 1.5px;
+$border-med: 2px;
+$border-thick: 5px;
+
+/**
+ * Border Radius
+ */
+$border-radius: 2px;
+$border-radius-big: 4px;

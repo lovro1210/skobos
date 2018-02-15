@@ -4,35 +4,40 @@ import Link from 'gatsby-link'
 const Header = () => (
   
     <header>
-      {/* <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1> */}
-        <Link className="h-branditem" to="/">
-          SKOBOS
-        </Link>
-        <Link className="h-item" to="/products/">
-          Products
-        </Link>
-        <Link className="h-item" to="/candidates">
-          Candidates
-        </Link>
-        <Link className="h-item" to="/howitworks">
-          How it works
-        </Link>
-        <Link className="h-item" to="/aboutus">
-          About us
-        </Link>
-        <Link className="h-item" to="/contact">
-          Contact
-        </Link>
+      <div className="header">    
+        <div className="header__brand">  
+          <Link className="h-branditem" to="/">
+            SKOBOS
+          </Link>
+        </div>
+        <div className="header__menu"> 
+          <div className="header__menu-item"> 
+          <Link className="" to="/products/">
+            Products
+          </Link>
+          </div>
+          <div className="header__menu-item"> 
+          <Link className="" to="/candidates">
+            Candidates
+          </Link>
+          </div>
+          <div className="header__menu-item"> 
+          <Link className="" to="/howitworks">
+            How it works
+          </Link>
+          </div>
+          <div className="header__menu-item"> 
+          <Link className="" to="/aboutus">
+            About us
+          </Link>
+          </div>
+          <div className="header__menu-item"> 
+          <Link className="" to="/contact">
+            Contact
+          </Link>
+          </div>
+        </div>
+      </div>
     </header>
   
 )
