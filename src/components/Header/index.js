@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import { translate } from "react-i18next"
-import  LanguageSwitcher from '../LanguageSwitcher/index'
+import SelectLanguage from '../SelectLanguage'
+import { FormattedMessage } from 'react-intl'
+import {
+  getLangs,
+  getUrlForLang,
+  getCurrentLangKey,
+  isHomePage
+} from 'ptz-i18n'
 
 
-class Header extends Component {
-  render() {
-    const { t } = this.props;
-
-    return (
+const Header = (props, langKey) => (
       <header>
       <div className="header">    
         <div className="header__brand">  
@@ -16,40 +18,37 @@ class Header extends Component {
          Skobos
           </Link>
         </div>
-      
-        <LanguageSwitcher/>
-        
+        <SelectLanguage langs={props.langs} />
         <div className="header__menu"> 
           <div className="menu-item"> 
-          <Link className="" to="/products" activeStyle={{ color: '#DE1933' }}>
-          {t("products")}
+          <Link className="" to={`products`} activeStyle={{ color: '#DE1933' }}>
+          <FormattedMessage id="products" />
           </Link>
           </div>
           <div className="menu-item"> 
-          <Link className="" to="/candidates" activeStyle={{ color: '#DE1933' }}>
-          {t("candidates")}
+          <Link className="" to={`candidates`} activeStyle={{ color: '#DE1933' }}>
+          <FormattedMessage id="candidates" />
           </Link>
           </div>
           <div className="menu-item"> 
-          <Link className="" to="/howitworks" activeStyle={{ color: '#DE1933' }}>
-          {t("howitworks")}
+          <Link className="" to={`howitworks`} activeStyle={{ color: '#DE1933' }}>
+          <FormattedMessage id="howitworks" />
           </Link>
           </div>
           <div className="menu-item"> 
-          <Link className="" to="/aboutus" activeStyle={{ color: '#DE1933' }}>
-          {t("aboutus")}
+          <Link className="" to={`aboutus`} activeStyle={{ color: '#DE1933' }}>
+          <FormattedMessage id="aboutus" />
           </Link>
           </div>
           <div className="menu-item"> 
-          <Link className="" to="/contact" activeStyle={{ color: '#DE1933' }}>
-          {t("contact")}
+          <Link className="" to={`contact`} activeStyle={{ color: '#DE1933' }}>
+          <FormattedMessage id="contact" />
           </Link>
           </div>
         </div>
       </div>
     </header>
     );
-  }
-}
 
-export default translate("Header")(Header);
+
+export default Header;
