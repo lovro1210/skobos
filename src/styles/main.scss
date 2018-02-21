@@ -33,4 +33,6 @@ main{
     // flex: 200px 1 1;
 }
 
+@import 'buttons';
 @import '../components/Header/header.scss';
+@import '../components/SelectLanguage/language.scss';

@@ -15,10 +15,9 @@ const Header = (props, langKey) => (
       <div className="header">    
         <div className="header__brand">  
           <Link className="" to="/">
-         Skobos
+            Skobos
           </Link>
-        </div>
-        <SelectLanguage langs={props.langs} />
+        </div>        
         <div className="header__menu"> 
           <div className="menu-item"> 
           <Link className="" to={`products`} activeStyle={{ color: '#DE1933' }}>
@@ -44,6 +43,9 @@ const Header = (props, langKey) => (
           <Link className="" to={`contact`} activeStyle={{ color: '#DE1933' }}>
           <FormattedMessage id="contact" />
           </Link>
+          </div>
+          <div className="menu-lang"> 
+          <SelectLanguage langs={props.langs} />
           </div>
         </div>
       </div>

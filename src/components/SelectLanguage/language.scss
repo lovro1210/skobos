@@ -1,0 +1,39 @@
+@include b('language'){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include e('list'){
+        list-style: none;
+        margin: 0;
+        display: flex;        
+
+        li{
+            margin: 0;
+            padding: 0 $pad;
+            border-right: $border-xs solid $border-color;
+
+            &:last-child{
+                border-right: none;
+            }
+
+            a{
+                color: $color-text-light;
+                text-decoration: none;
+            }
+            a:visited{        
+                color: $color-text-light;
+            }    
+            a:active{        
+                color: $color-text-light;
+            }
+            a:hover{        
+                color: $palette-primary;
+            }
+
+            a.is-active{
+                color: $palette-primary;
+            }
+        }
+    }
+}

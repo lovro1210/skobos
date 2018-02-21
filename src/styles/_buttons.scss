@@ -1,0 +1,21 @@
+@include b('btn') {
+    padding: $pad $pad-triple;
+    border: 1px solid;
+    border-radius: $border-radius;    
+    font-size: $font-size-med;
+    outline: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+
+    @include m('primary'){
+        background-color: $palette-primary;
+        color: white;
+    } 
+    @include m('secondary'){
+        background-color: $palette-secondary;
+        color: white;
+    } 
+}

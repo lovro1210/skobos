@@ -1,12 +1,27 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-const IndexPage = () => (
+const IndexPage = () => {
+  function handleClick(e) {
+    e.preventDefault();
+    console.log('The button was clicked.');
+  }
+
+  return(
   <div>
     <h1>Homepage</h1>
     <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>    
+
+    <button className="btn btn--primary" onClick={handleClick}>
+      Get Started
+    </button>
+
+    <button className="btn btn--secondary" onClick={handleClick}>
+      Continue
+    </button>
+      
   </div>
-)
+  );
+};
 
 export default IndexPage
