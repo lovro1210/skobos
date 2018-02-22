@@ -15,6 +15,7 @@ const TemplateWrapper = ({ children, data, location, i18nMessages }) => {
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
   const homeLink = `/${langKey}/`;
   const langsMenu = getLangs(langs, langKey, getUrlForLang(homeLink, url));
+  const myProps = { langKey: langKey };
 
   return (
     <IntlProvider
@@ -32,7 +33,7 @@ const TemplateWrapper = ({ children, data, location, i18nMessages }) => {
         <div className="container">
         <Header langs={langsMenu} langKey={homeLink} />
         <main>
-          {children()}
+        {children()}
         </main>
         <Footer/>
       </div>

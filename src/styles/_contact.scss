@@ -1,0 +1,79 @@
+@include b('contact') {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    
+    @include e('title') {
+        font-size: $font-size-huge;
+        font-weight: 700;
+        padding-bottom: $pad-quad*2;
+        text-align: center;
+    }
+
+    @include e('content') {
+        background-color: white;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+
+    @include e('form-row') {
+        display: flex;
+        padding: $pad;
+    }
+
+    @include e('input-wrapper') {
+        display: flex;
+        flex-grow: 1;
+        padding: $pad;
+        flex-direction: column;
+        
+        div {
+           font-size: $font-size-small-2;
+           color: $color-text-light;
+        }
+
+        input {
+            border: none;
+            width: 100%;
+            margin-bottom: 10px;
+            border-bottom: 2px solid $color-text-lighter;
+            color: $color-text-light;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                left: 0;
+                bottom: 0;
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background-color: red;
+                content: '';
+                z-index: 15;
+            }
+        }
+
+        input:focus {
+            outline: none!important;
+        }
+
+        textarea {
+            border: none;
+            width: 100%;
+            margin-bottom: 10px;
+            border: 2px solid $color-text-lighter;
+            color: $color-text-light;
+            resize: none;
+        }
+
+        textarea:focus {
+            outline: none!important;
+        }
+    }
+}
+
+
+
+
