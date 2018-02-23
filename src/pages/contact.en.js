@@ -10,17 +10,17 @@ const Contact = () => (
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
               <div> Full name </div>
-              <input/>
+              <input type="text"/>
             </div>
             <div className="contact__input-wrapper">
               <div> Email address </div>
-              <input/>
+              <input type="email"/>
             </div>
            </div>
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
              <div> Subject </div>
-             <input/>
+             <input type="text"/>
             </div>
            </div>
            <div className="contact__form-row">

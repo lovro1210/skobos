@@ -9,6 +9,10 @@
     align-items: center;
     background-color: white;
     border-bottom: $border-xs solid $border-color;
+
+    @include mq($from: mobile, $until: desktop) {
+        display: none;
+    }
 }
 
 .header__brand{
@@ -50,6 +54,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    color: $color-text-light;
+    text-decoration: none;
 
     &::after{
         content: '';
@@ -70,26 +76,16 @@
             display: block;
         }
 
-        a{
-            color: $palette-primary!important;
-        }
+        color: $palette-primary!important;       
     }
-
-    a{
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: $color-text-light;
-        text-decoration: none;
-    }    
-    a:visited{        
+  
+    &:visited{        
         color: $color-text-light;
     }    
-    a:active{        
+    &:active{        
         color: $color-text-light;
     }
-    a:hover{        
+    &:hover{        
         color: $color-text-light;
     }
 }
@@ -102,3 +98,124 @@
     justify-content: center;
 }
 
+
+.header-mobile{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    padding: 0 5% 0 0;
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-bottom: $border-xs solid $border-color;
+
+    @include mq($from: desktop) {
+        display: none;
+    }
+}
+
+.header-hamburger{
+    width: 60px;
+    height: 100%;
+    //border: $border-xs solid $border-color;
+    font-size: $font-size-huge;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-menu{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 220px;
+    background-color: white;
+    z-index: 100;
+    margin-left: -220px;    
+    -webkit-box-shadow: 2px 0px 2px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 2px 0px 2px 0px rgba(0,0,0,0.2);
+    box-shadow: 2px 0px 2px 0px rgba(0,0,0,0.2);
+
+    &.is-open{
+        margin-left: 0;
+    }
+}
+
+.side-menu__item{
+    height: 60px;  
+    width: 100%;   
+    padding: 0 $pad-double;      
+    display: flex;
+    align-items: center;    
+    position: relative;
+    color: $color-text-light;
+    text-decoration: none;
+    border-bottom: $border-xs solid $border-color;
+
+    &::after{
+        content: '';
+        top: 5px;
+        bottom: 5px;      
+        width: 4px;        
+        background-color: $palette-primary;
+        position: absolute;       
+        right: 0;
+        display: none;
+    }      
+
+    &.is-active{
+        &::after{
+            display: block;
+        }
+
+        color: $palette-primary!important;
+        
+    }
+
+    &:visited{        
+        color: $color-text-light;
+    }    
+    &:active{        
+        color: $color-text-light;
+    }
+    &:hover{        
+        color: $color-text-light;
+    }
+}
+
+.side-menu__title{
+    height: 60px;  
+    width: 100%;   
+    padding: 0 $pad-double;                 
+    color: $color-text-light;    
+    border-bottom: $border-xs solid $border-color;
+    font-size: $font-size-large;
+    font-weight: 700;      
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+
+    a{
+        color: $palette-primary;
+        text-decoration: none;
+    }
+    a:visited{        
+        color: $palette-primary;
+    }    
+    a:active{        
+        color: $palette-primary;
+    }
+    a:hover{        
+        color: $palette-primary;
+    }
+
+    .close{
+        
+    }
+}
