@@ -26,7 +26,7 @@ const Contact = () => (
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
              <div> Your message </div>
-             <textarea  rows="5" cols="50"/>
+             <textarea  rows="8" cols="50"/>
             </div>
            </div>
         </form>  
