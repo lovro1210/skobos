@@ -86,23 +86,23 @@ class Header extends React.Component {
           </div> 
           </div>
         
-          <Link className="side-menu__item" to={`products`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`products`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="products" />
           </Link>
           
-          <Link className="side-menu__item" to={`candidates`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`candidates`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="candidates" />
           </Link>
          
-          <Link className="side-menu__item" to={`howitworks`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`howitworks`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="howitworks" />
           </Link>
           
-          <Link className="side-menu__item" to={`aboutus`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`aboutus`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="aboutus" />
           </Link>
            
-          <Link className="side-menu__item" to={`contact`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`contact`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="contact" />
           </Link>
           
