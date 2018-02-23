@@ -5,11 +5,15 @@
     font-size: $font-size-med;
     outline: none;
     font-weight: 600;
-    cursor: pointer;
-    min-width: 110px;
+    opacity: 0.9;
+    cursor: pointer;    
     display: flex;
     align-items: center;
     justify-content: center;    
+
+    &:hover{
+        opacity: 1;
+    }
 
     @include m('primary'){
         background-color: $palette-primary;
