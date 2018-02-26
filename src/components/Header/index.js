@@ -88,11 +88,7 @@ class Header extends React.Component {
           
           <Link className="side-menu__item" to={`candidates`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="candidates" />
-          </Link>
-         
-          <Link className="side-menu__item" to={`howitworks`} activeClassName="is-active" onClick={this.closeMenu}>
-          <FormattedMessage id="howitworks" />
-          </Link>
+          </Link>          
           
           <Link className="side-menu__item" to={`aboutus`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="aboutus" />

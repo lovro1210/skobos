@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 import Helmet from "react-helmet";
-import Mailgun from 'mailgun.js';
+//import Mailgun from 'mailgun.js';
 
 
 
@@ -9,29 +9,40 @@ export default class Contact extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = (e) => {
+  handleChange(e){
     this.setState({[e.target.name]: e.target.value});
   }
 
-  handleSubmit = e => {
-    console.log("MAIL");
-    var api_key = 'key-6fa755e4a15f89156794c0361a71d713';
-    var domain = 'sandbox880096e65d434177912527319d552905.mailgun.org';
-    var mailgun = Mailgun({apiKey: api_key, domain: domain});
-     
+  handleSubmit(e){     
     var data = {
-      from: 'Excited User <me@samples.mailgun.org>',
-      to: 'mislav.zabcic@gmail.com',
-      subject: 'Hello',
-      text: 'Testing some Mailgun awesomeness!'
-    };
-     
-    mailgun.messages().send(data, function (error, body) {
-     
-    });
+      name: this.state.name,
+      email: this.state.email,
+      subject: this.state.subject,
+      message: this.state.message
+    };     
+    console.log(data); 
+
+    //this.sendMail(data);
+   
   };
+
+  sendMail(data) {
+    return fetch('uri', {
+        method: 'POST',
+        mode: 'CORS',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        return res;
+    }).catch(err => err);
+}
 
   render() {
     return (
@@ -42,31 +53,33 @@ export default class Contact extends React.Component {
         <form>
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
-              <div> Full name </div>
-              <input type="text" name="name" onChange={this.handleChange}/>
+              <label htmlFor="name"> Full name </label>
+              <input type="text" id="name" name="name" required="required" onChange={this.handleChange}/>
               <span className="contact__input-underline"></span>
             </div>
             <div className="contact__input-wrapper">
-              <div> Email address </div>
-              <input type="email" name="_replyto" onChange={this.handleChange}/>
+              <label htmlFor="email"> Email address </label>
+              <input type="email" id="email" name="email" required="required" onChange={this.handleChange}/>
               <span className="contact__input-underline"></span>
             </div>
            </div>
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
-             <div> Subject </div>
-             <input type="text" name="subject" onChange={this.handleChange}/>
+             <label htmlFor="subject"> Subject </label>
+             <input type="text" id="subject" name="subject" required="required" onChange={this.handleChange}/>
              <span className="contact__input-underline"></span>
             </div>
            </div>
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
-             <div> Your message </div>
-             <textarea  rows="8" cols="50" name="message" onChange={this.handleChange}/>
+             <label htmlFor="message"> Your message </label>
+             <textarea  rows="8" cols="50" id="message" name="message" onChange={this.handleChange}/>
             </div>
            </div>
-           <div onClick={this.handleSubmit} >
-           TEST
+           <div className="contact__button-row">
+           <button className="btn btn--secondary" onClick={this.handleSubmit} >
+              Submit
+           </button>
            </div>
         </form>  
       </div>    
