@@ -10,6 +10,7 @@
     "gatsby-plugin-react-helmet": "^2.0.3",
     "gatsby-plugin-sass": "^1.0.17",
     "intl": "^1.2.5",
+    "mailgun.js": "^2.0.1",
     "mq-sass": "^0.8.0",
     "react-helmet": "^5.2.0",
     "react-i18next": "^7.3.6",
