@@ -38,6 +38,10 @@ class Header extends React.Component {
         </div>        
         <div className="header__menu"> 
          
+        <Link className="menu-item" to={`aboutus`} activeClassName="is-active">
+          <FormattedMessage id="aboutus" />
+          </Link>
+
           <Link className="menu-item" to={`products`} activeClassName="is-active">
           <FormattedMessage id="products" />
           </Link>
@@ -45,15 +49,7 @@ class Header extends React.Component {
           <Link className="menu-item" to={`candidates`} activeClassName="is-active">
           <FormattedMessage id="candidates" />
           </Link>
-         
-          <Link className="menu-item" to={`howitworks`} activeClassName="is-active">
-          <FormattedMessage id="howitworks" />
-          </Link>
-         
-          <Link className="menu-item" to={`aboutus`} activeClassName="is-active">
-          <FormattedMessage id="aboutus" />
-          </Link>
-         
+   
           <Link className="menu-item" to={`contact`} activeClassName="is-active">
           <FormattedMessage id="contact" />
           </Link>
