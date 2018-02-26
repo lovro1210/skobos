@@ -10,22 +10,25 @@ import {
 } from 'ptz-i18n'
 
 
-const Header = (props, langKey) => {
-  let menuClass = "side-menu";
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isOpen: false};
 
-  function openMenu(e) {
-    e.preventDefault();    
-    menuClass = "side-menu is-open";
-    console.log(menuClass);
+    this.openMenu = this.openMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
   }
 
-  function closeMenu(e) {
-    e.preventDefault();    
-    menuClass = "side-menu";
-    console.log(menuClass);
+  openMenu() {   
+    this.setState({isOpen: true});    
   }
 
-  return(
+  closeMenu() {        
+    this.setState({isOpen: false});  
+  }
+
+  render() {
+    return(
       <header>      
       <div className="header">    
         <div className="header__brand">  
@@ -52,14 +55,14 @@ const Header = (props, langKey) => {
           </Link>
 
           <div className="menu-lang"> 
-          <SelectLanguage langs={props.langs} />
+          <SelectLanguage langs={this.props.langs} />
           </div>
         </div>
       </div>
 
       <div className="header-mobile">           
         <div className="header__brand">  
-          <div className="header-hamburger" onClick={openMenu}>
+          <div className="header-hamburger" onClick={this.openMenu}>
             X
           </div> 
           <Link className="" to="/">
@@ -67,33 +70,35 @@ const Header = (props, langKey) => {
           </Link>
         </div>   
         <div className="menu-lang"> 
-          <SelectLanguage langs={props.langs} />
+          <SelectLanguage langs={this.props.langs} />
           </div>     
-        <side className={menuClass}> 
+        <side className={this.state.isOpen ? 'side-menu is-open' : 'side-menu'}> 
           <div className="side-menu__title">
           <Link className="" to="/">
             Skobos
           </Link>
-          <div className="close" onClick={closeMenu}>
+          <div className="close" onClick={this.closeMenu}>
             X
           </div> 
           </div>
         
-          <Link className="side-menu__item" to={`products`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`products`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="products" />
           </Link>
           
-          <Link className="side-menu__item" to={`candidates`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`candidates`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="candidates" />
           </Link>
          
+          <Link className="side-menu__item" to={`howitworks`} activeClassName="is-active" onClick={this.closeMenu}>
+          <FormattedMessage id="howitworks" />
+          </Link>
           
-          
-          <Link className="side-menu__item" to={`aboutus`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`aboutus`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="aboutus" />
           </Link>
            
-          <Link className="side-menu__item" to={`contact`} activeClassName="is-active">
+          <Link className="side-menu__item" to={`contact`} activeClassName="is-active" onClick={this.closeMenu}>
           <FormattedMessage id="contact" />
           </Link>
           
@@ -102,7 +107,7 @@ const Header = (props, langKey) => {
 
     </header>
   );
-};
-
+  }
+}
 
 export default Header;
