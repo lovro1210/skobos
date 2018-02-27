@@ -8,7 +8,8 @@ import { navigateTo } from "gatsby-link";
 export default class Contact extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {email : ""};
+    this.state = {emailError : "",
+                  showSpinner : false};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -25,14 +26,13 @@ export default class Contact extends React.Component {
       subject: this.state.subject,
       message: this.state.message
     };     
-   
-
+         
     this.sendMail(data);
    
   };
 
   sendMail(data) {
-    this.showSpinner = true;
+    this.setState({showSpinner: true}); 
     return fetch('http://159.89.105.56/contact', {
         method: 'POST',
         mode: 'CORS',
@@ -44,7 +44,7 @@ export default class Contact extends React.Component {
       if (res.status == 200) {
         navigateTo('thanks');
       } else {
-        this.setState({email: "contact__input-wrapper--error"});
+        this.setState({emailError: "contact__input-wrapper--error"});
       }
         return res;
     }).catch(err =>  {
@@ -52,8 +52,11 @@ export default class Contact extends React.Component {
 }
 
   render() {
-    return (
-    <article className="contact">
+    return (        
+    <article className="contact">   
+    <section className={this.state.showSpinner ? 'loader-box is-active' : 'loader-box'}>
+      <span className="loader"></span>
+    </section> 
     <section className="contact__panel">
     <div className="contact__title">Get in touch with us</div>
     <div className="contact__content">
@@ -65,7 +68,7 @@ export default class Contact extends React.Component {
               <span className="contact__input-underline"></span>
               
             </div>
-            <div className={"contact__input-wrapper " + this.state.email}>
+            <div className={"contact__input-wrapper " + this.state.emailError}>
               <label htmlFor="email"> Email address </label>
               <input type="email" id="email" name="email" required="required" onChange={this.handleChange}/>
               <span className="contact__input-underline"></span>
@@ -90,8 +93,7 @@ export default class Contact extends React.Component {
               Submit
            </button>
            </div>
-        </form>
-         
+        </form>         
     </div>    
     </section>
   </article>
