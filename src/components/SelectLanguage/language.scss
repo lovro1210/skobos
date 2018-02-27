@@ -11,7 +11,7 @@
         li{
             margin: 0;
             padding: 0 $pad;
-            border-right: $border-xs solid $border-color;
+            //border-right: $border-xs solid $border-color;
 
             &:last-child{
                 border-right: none;
@@ -20,6 +20,7 @@
             a{
                 color: $color-text-light;
                 text-decoration: none;
+                font-weight: 600;
             }
             a:visited{        
                 color: $color-text-light;
