@@ -60,6 +60,14 @@
             .contact__input-underline::before {
                 background:red!important; 
             }
+
+            textarea {
+                border: 2px solid $palette-primary!important;
+            }
+
+            textarea:focus {
+                border: 2px solid red!important;
+            }
         }
         
         label {
