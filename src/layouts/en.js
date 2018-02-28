@@ -5,6 +5,7 @@ import { addLocaleData } from 'react-intl';
 
 import messages from '../data/messages/en';
 import en from 'react-intl/locale-data/en';
+import "../styles/main.scss";
 
 
 addLocaleData(en);

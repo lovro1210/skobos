@@ -28,9 +28,7 @@ const TemplateWrapper = ({ children, data, location, i18nMessages }) => {
       meta={[
         { name: 'description', content: 'Skobos' },
         { name: 'keywords', content: 'Skobos' },
-      ]}>
-      <link rel="stylesheet" type="text/css" href="/styles.css"/>
-      </Helmet>
+      ]}/>
         <div className="container">
         <Header langs={langsMenu} langKey={homeLink} />
         <main>

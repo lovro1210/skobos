@@ -5,6 +5,8 @@ import { addLocaleData } from 'react-intl';
 
 import messages from '../data/messages/hr';
 import hr from 'react-intl/locale-data/hr';
+import "../styles/main.scss";
+
 addLocaleData(hr);
 
 export default (props) => (
