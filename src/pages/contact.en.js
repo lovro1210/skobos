@@ -63,7 +63,7 @@ export default class Contact extends React.Component {
 
   sendMail(data) {
     this.setState({showSpinner: true}); 
-    return fetch('http://159.89.105.56/contact', {
+    return fetch('http://159.89.105.56:8000/contact', {
         method: 'POST',
         mode: 'CORS',
         body: JSON.stringify(data),
