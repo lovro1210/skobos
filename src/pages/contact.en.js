@@ -5,28 +5,38 @@ import { navigateTo } from "gatsby-link";
 
 
 
+
 export default class Contact extends React.Component {
   constructor(props) {
     super(props);
     this.state = {emailError : "",
-                  showSpinner : false};
+                  showSpinner : false}
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+
   handleChange(e){
+
     this.setState({[e.target.name]: e.target.value});
+    console.log(this.state.name);
   }
 
+ 
+
   handleSubmit(e){   
-    e.preventDefault()  
+    e.preventDefault();  
+    if (this.state.name === undefined || this.state.name.length == 0) {
+      this.state.name = '';
+      return;
+    }
     var data = {
       name: this.state.name,
       email: this.state.email,
       subject: this.state.subject,
       message: this.state.message
     };     
-         
+    
     this.sendMail(data);
    
   };
@@ -45,9 +55,11 @@ export default class Contact extends React.Component {
         navigateTo('thanks');
       } else {
         this.setState({emailError: "contact__input-wrapper--error"});
+        this.setState({showSpinner: false}); 
       }
         return res;
     }).catch(err =>  {
+     
     });
 }
 
@@ -60,36 +72,38 @@ export default class Contact extends React.Component {
     <section className="contact__panel">
     <div className="contact__title">Get in touch with us</div>
     <div className="contact__content">
-    <form action="">
+    <form action="" onSubmit={this.handleSubmit}>
            <div className="contact__form-row">
-            <div className="contact__input-wrapper">
+            <div className={this.state.name === undefined || this.state.name.length > 0 ? 'contact__input-wrapper' : 'contact__input-wrapper contact__input-wrapper--error'}>
               <label htmlFor="name"> Full name </label>
-              <input type="text" id="name" name="name" required="required" onChange={this.handleChange}/>
+              <input maxLength="40" type="text" id="name" name="name" onChange={this.handleChange} />
               <span className="contact__input-underline"></span>
-              
+              <span className="contact__input-error">Name is required!</span>
             </div>
             <div className={"contact__input-wrapper " + this.state.emailError}>
               <label htmlFor="email"> Email address </label>
-              <input type="email" id="email" name="email" required="required" onChange={this.handleChange}/>
+              <input maxLength="50" type="text" id="email" name="email"  onChange={this.handleChange}/>
               <span className="contact__input-underline"></span>
               <span className="contact__input-error">Email address is invalid!</span>
             </div>
            </div>
            <div className="contact__form-row">
-            <div className="contact__input-wrapper">
+           <div className={this.state.subject === undefined || this.state.subject.length > 0  ? 'contact__input-wrapper' : 'contact__input-wrapper contact__input-wrapper--error'}>
              <label htmlFor="subject"> Subject </label>
-             <input type="text" id="subject" name="subject" required="required" onChange={this.handleChange}/>
+             <input maxLength="80" type="text" id="subject" name="subject" onChange={this.handleChange}/>
              <span className="contact__input-underline"></span>
+             <span className="contact__input-error">Subject is required!</span>
             </div>
            </div>
            <div className="contact__form-row">
-            <div className="contact__input-wrapper">
+           <div className={this.state.message === undefined || this.state.message.length > 0  ? 'contact__input-wrapper' : 'contact__input-wrapper contact__input-wrapper--error'}>
              <label htmlFor="message"> Your message </label>
-             <textarea  rows="8" cols="50" id="message" name="message" onChange={this.handleChange}/>
+             <textarea  maxLength="2500" rows="8" cols="50" id="message" name="message" onChange={this.handleChange}/>
+             <span className="contact__input-error">Message is required!</span>
             </div>
            </div>
            <div className="contact__button-row">
-           <button className="btn btn--secondary" onClick={this.handleSubmit} >
+           <button className="btn btn--secondary" type="submit" >
               Submit
            </button>
            </div>

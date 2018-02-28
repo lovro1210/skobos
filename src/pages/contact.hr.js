@@ -1,41 +1,104 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
+import Link from "gatsby-link";
+import Helmet from "react-helmet";
+import { navigateTo } from "gatsby-link";
 
-const Contact = () => (
-  <article className="contact">
+
+
+export default class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {emailError : "",
+                  showSpinner : false};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(e){
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleSubmit(e){   
+    e.preventDefault()  
+    var data = {
+      name: this.state.name,
+      email: this.state.email,
+      subject: this.state.subject,
+      message: this.state.message
+    };     
+         
+    this.sendMail(data);
+   
+  };
+
+  sendMail(data) {
+    this.setState({showSpinner: true}); 
+    return fetch('http://159.89.105.56/contact', {
+        method: 'POST',
+        mode: 'CORS',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+      if (res.status == 200) {
+        navigateTo('thanks');
+      } else {
+        this.setState({emailError: "contact__input-wrapper--error"});
+        this.setState({showSpinner: false}); 
+      }
+        return res;
+    }).catch(err =>  {
+     
+    });
+}
+
+  render() {
+    return (        
+    <article className="contact">   
+    <section className={this.state.showSpinner ? 'loader-box is-active' : 'loader-box'}>
+      <span className="loader"></span>
+    </section> 
     <section className="contact__panel">
-      <div className="contact__title">Get in touch with us</div>
-      <div className="contact__content">
-        <form>
+    <div className="contact__title">Kontaktirajte nas</div>
+    <div className="contact__content">
+    <form action="">
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
-              <div> Full name </div>
-              <input type="text"/>
+              <label htmlFor="name"> Ime i prezime </label>
+              <input type="text" id="name" name="name" required="required" onChange={this.handleChange}/>
               <span className="contact__input-underline"></span>
+              
             </div>
-            <div className="contact__input-wrapper">
-              <div> Email address </div>
-              <input type="email"/>
+            <div className={"contact__input-wrapper " + this.state.emailError}>
+              <label htmlFor="email"> Email adresa </label>
+              <input type="email" id="email" name="email" required="required" onChange={this.handleChange}/>
               <span className="contact__input-underline"></span>
+              <span className="contact__input-error">Email adresa je neispravna!</span>
             </div>
            </div>
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
-             <div> Subject </div>
-             <input type="text"/>
+             <label htmlFor="subject"> Subject </label>
+             <input type="text" id="subject" name="subject" required="required" onChange={this.handleChange}/>
              <span className="contact__input-underline"></span>
             </div>
            </div>
            <div className="contact__form-row">
             <div className="contact__input-wrapper">
-             <div> Your message </div>
-             <textarea  rows="8" cols="50"/>
+             <label htmlFor="message"> Vaša poruka </label>
+             <textarea  rows="8" cols="50" id="message" name="message" onChange={this.handleChange}/>
             </div>
            </div>
-        </form>  
-      </div>    
+           <div className="contact__button-row">
+           <button className="btn btn--secondary" onClick={this.handleSubmit} >
+              Pošalji
+           </button>
+           </div>
+        </form>         
+    </div>    
     </section>
   </article>
-)
-
-export default Contact
+    );
+  }
+}
