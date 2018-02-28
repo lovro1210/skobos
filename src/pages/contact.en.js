@@ -17,19 +17,39 @@ export default class Contact extends React.Component {
 
 
   handleChange(e){
-
-    this.setState({[e.target.name]: e.target.value});
-    console.log(this.state.name);
+    this.setState({[e.target.name]: e.target.value});   
+    
+    if (this.state.email !== undefined && this.state.emailError != '') {
+      this.setState({emailError: ''});  
+    }
+    
   }
-
  
 
   handleSubmit(e){   
     e.preventDefault();  
+    let flag = false;
     if (this.state.name === undefined || this.state.name.length == 0) {
-      this.state.name = '';
+      this.setState({name: ''});
+      flag = true;
+    }    
+    if (this.state.email === undefined || this.state.email.length == 0) {
+      this.setState({email: ''});      
+      flag = true;
+    }
+    if (this.state.subject === undefined || this.state.subject.length == 0) {
+      this.setState({subject: ''});
+      flag = true;
+    }
+    if (this.state.message === undefined || this.state.message.length == 0) {
+      this.setState({message: ''});
+      flag = true;
+    }
+
+    if(flag){
       return;
     }
+    
     var data = {
       name: this.state.name,
       email: this.state.email,
@@ -80,7 +100,7 @@ export default class Contact extends React.Component {
               <span className="contact__input-underline"></span>
               <span className="contact__input-error">Name is required!</span>
             </div>
-            <div className={"contact__input-wrapper " + this.state.emailError}>
+            <div className={this.state.email === undefined || this.state.email.length > 0  ? 'contact__input-wrapper ' + this.state.emailError : 'contact__input-wrapper contact__input-wrapper--error'}>
               <label htmlFor="email"> Email address </label>
               <input maxLength="50" type="text" id="email" name="email"  onChange={this.handleChange}/>
               <span className="contact__input-underline"></span>

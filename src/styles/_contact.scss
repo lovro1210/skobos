@@ -20,13 +20,13 @@
         background-color: white;
         box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
         border-radius: 4px;
-        min-height: 400px;
-        min-width: 448px;
+        //min-height: 400px;
+        //min-width: 448px;
     }
 
     @include e('form-row') {
         display: flex;
-        padding: $pad;
+        padding: 0 $pad;
     }
 
     @include e('button-row') {
@@ -42,7 +42,7 @@
         flex-direction: column;
 
         @include m('error') {
-            padding-bottom: 0px!important;
+            //padding-bottom: 0px!important;
 
             label {
                 color: $palette-primary!important;
@@ -54,7 +54,8 @@
             }
 
             .contact__input-error {
-                display: block!important;
+                //display: block!important;
+                visibility: visible!important;
             }
 
             .contact__input-underline::before {
@@ -126,7 +127,8 @@
         @include e('input-error') {
             font-size: $font-size-small;
             color: $palette-primary;
-            display: none;
+            //display: none;
+            visibility: hidden;
         }
     }
 }
