@@ -1,4 +1,4 @@
-/*@import 'variables';
+@import 'variables';
 @import "../../node_modules/sass-bem/_bem";
 @import '../../node_modules/sass-mq/mq';
 
@@ -41,8 +41,5 @@ main{
 @import '../components/Header/header.scss';
 @import '../components/SelectLanguage/language.scss';
 @import 'contact';
-@import 'loader'; */
+@import 'loader'; 
 
-.test {
-    color: red;
-}
