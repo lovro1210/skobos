@@ -23,7 +23,7 @@ exports.modifyWebpackConfig = function ({ config, stage }) {
     })
   }
 
-  if (stage === 'develop') {
+  if (stage === 'build') {
     config.removeLoader('sass');
     config.loader('sass', {
       test: /\.(sass|scss)/,
