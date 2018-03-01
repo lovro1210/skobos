@@ -1,4 +1,4 @@
-@import 'variables';
+@import './_variables';
 @import "../../node_modules/sass-bem/_bem";
 @import '../../node_modules/sass-mq/mq';
 
@@ -37,8 +37,8 @@ main{
     // flex: 200px 1 1;
 }
 
-@import 'buttons';
+@import './buttons.scss';
 @import '../components/Header/header.scss';
 @import '../components/SelectLanguage/language.scss';
-@import 'contact';
-@import 'loader';
+@import './_contact.scss';
+@import './_loader.scss';
