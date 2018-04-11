@@ -9,7 +9,8 @@
     cursor: pointer;    
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;  
+    text-decoration: none;  
 
     &:hover{
         opacity: 0.9;
@@ -18,9 +19,154 @@
     @include m('primary'){
         background-color: $palette-primary;
         color: white;
+        border: 1px solid $palette-primary;
+
+        &.inverted{
+            background-color: $white;
+            color: $palette-primary;
+            border: 1px solid $palette-primary;
+        }
     } 
+     
     @include m('secondary'){
         background-color: $palette-secondary;
         color: white;
+        border: 1px solid $palette-secondary;
     } 
+
+    @include m('tertiary'){
+        background-color: $color-text-light;
+        color: white;
+        border: 1px solid $color-text-light;
+
+        &.inverted{
+            background-color: $white;
+            color: $color-text-light;
+            border: 1px solid $color-text-light;
+
+        }
+    }
+
+    @include m('section'){
+        margin-bottom: $pad-dodeca;
+        padding: $pad $pad-dodeca;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @include m('wide'){
+        padding: $pad $pad-dodeca;
+    }
+
+    @include m('center'){
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
+
+/**
+ * Start by hiding the checkboxes
+ */
+ input[type=checkbox] {
+    visibility: hidden; }
+
+    input[type=radio] {
+        visibility: hidden; }
+  
+  /**
+     * Checkbox Five
+     */
+  .checkbox-full {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    position: relative;
+    margin-bottom: $pad-triple;
+
+    &.radio{
+        width: 100%;
+    }
+}
+  
+  /**
+     * Create the box for the checkbox
+     */
+  .checkbox-full label {
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    border: 1px solid $border-color;
+    border-radius: 2px;
+ }
+
+ .checkbox-full label:hover {
+    border: 1px solid $palette-primary; }
+
+ .checkbox-full__text {
+     position: absolute;
+     left: 44px;
+     font-size: $font-size-med;
+     font-weight: 500;
+
+     &.radio{
+         left: 36px;
+     }
+ }
+  
+  /**
+     * Display the tick inside the checkbox
+     */
+  .checkbox-full label:after {
+    //opacity: 0;
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: $border-color;
+    margin: 2px;
+    border-radius: 2px;
+    /**top: 3px;
+      left: 1.5px;
+      border: 2px solid #333;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);*/ }
+  
+  /**
+     * Create the hover event of the tick
+     */
+  .checkbox-full label:hover::after {
+    opacity: 0.2;
+    background: $palette-primary; }
+
+   .checkbox-full--width {
+       grid-column: 1/3;
+   }
+  
+  /**
+     * Create the checkbox state for the tick
+     */
+  .checkbox-full input[type=checkbox]:checked + label:after {
+    opacity: 1 !important;
+    background: $palette-primary;
+   }
+
+   .checkbox-full input[type=checkbox]:checked + label {
+    border: 1px solid $palette-primary;
+   }
+
+   .checkbox-full input[type=radio]:checked + label:after {
+    opacity: 1 !important;
+    background: $palette-primary;
+   }
+
+   .checkbox-full input[type=radio]:checked + label {
+    border: 1px solid $palette-primary;
+   }
+
+   .link {
+       display: flex;
+   }

@@ -1,7 +1,8 @@
 module.exports = {
   'selectLanguage': 'Odaberi jezik',
-  'products': 'Usluge',
-  'candidates': 'Karijere',
+  'work': 'Rad',
+  'jobs': 'Poslovi',
   'aboutus': 'O nama',
-  'contact': 'Kontakt'
+  'contact': 'Kontakt',
+  'hiretalent': 'Tražimo'
 };

@@ -1,18 +1,34 @@
 .header{
     width: 100%;
     height: 80px;
-    position: fixed;
+    //position: fixed;
     top: 0;
-    padding: 0 10%;
     display: flex;    
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    border-bottom: $border-xs solid $border-color;
+    position: relative;
 
     @include mq($from: mobile, $until: desktop) {
         display: none;
     }
+}
+
+.header__element{
+    transform: rotate(-15.2468deg);
+    position: absolute;
+    top: -250px;
+    left: 44%;
+    width: 950px;
+    height: 520px;
+    opacity: 1;
+    z-index: 0;
+    background-color: #DE1933;
+    box-shadow: #DE1933 0px 0px 0px;
+    will-change: transform;
+    margin: -1px;
+    overflow: hidden;
+    border-radius: 50px;
 }
 
 .header__brand{
@@ -28,7 +44,7 @@
         color: $color-text-light;
         text-decoration: none;
         font-size: $font-size-large;
-        font-weight: 700;
+        font-weight: 600;
     }    
     a:visited{        
         color: $color-text-light;
@@ -47,46 +63,46 @@
     height: 100%;
 }
 
-.menu-item{
-    height: 100%;    
-    margin: 0 $pad-double;
+.menu-item{    
+    margin: 0 $pad-double-and-half;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    color: $color-text-light;
-    text-decoration: none;
-
-    &::after{
-        content: '';
-        width: 100%;
-        height: 4px;
-        background-color: $palette-primary;
-        position: absolute;
-        bottom: 0;
-        display: none;
-    }
-
-    &:hover::after{
-        display: block;
-    }    
+    color: $white;
+    text-decoration: none;  
+    font-size: $font-size-med;  
 
     &.is-active{
-        &::after{
-            display: block;
-        }
+        font-weight: 800;       
+    }
 
-        color: $palette-primary!important;       
-    }
-  
-    &:visited{        
-        color: $color-text-light;
-    }    
-    &:active{        
-        color: $color-text-light;
-    }
     &:hover{        
         color: $color-text-light;
+    }
+}
+
+.menu-item2{    
+    margin: 0 $pad-double-and-half;
+    font-size: $font-size-med;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: $white;
+    text-decoration: none; 
+    padding: $pad-one-and-half $pad-triple;
+    border: $border-xs solid $white;
+    border-radius: 2px;   
+
+    &.is-active{
+        background-color: $white;
+        color: $palette-primary;   
+    }
+
+    &:hover{        
+        color: $color-text-light;
+        border: $border-xs solid $color-text-light;
     }
 }
 

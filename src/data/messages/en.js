@@ -1,7 +1,8 @@
 module.exports = {
     'selectLanguage': 'Select your language',
-    'products': 'Services',
-    'candidates': 'Careers',
+    'work': 'Work',
+    'jobs': 'Jobs',
     'aboutus': 'About us',
-    'contact': 'Contact'
+    'contact': 'Contact',
+    'hiretalent': 'Hire talent'
   };

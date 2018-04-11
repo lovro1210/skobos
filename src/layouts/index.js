@@ -31,9 +31,9 @@ const TemplateWrapper = ({ children, data, location, i18nMessages }) => {
       ]}/>
         <div className="container">
         <Header langs={langsMenu} langKey={homeLink} />
-        <main>
+        
         {children()}
-        </main>
+        
         <Footer/>
       </div>
       </div>

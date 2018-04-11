@@ -11,7 +11,11 @@ $color-text: #333333;
 $color-text-light: #838282;
 $color-text-lighter: #eee;
 
+$heading-color: #E0E0E0;
 $border-color: rgba(0, 0, 0, 0.1);
+
+$white: white;
+$back-grey: #F9F9F9;
 
 /*
 $color-text-link: ;
@@ -36,20 +40,31 @@ $font-size-small-1 : 13px; //0.8175rem
 $font-size-small-2 : 14px; //0.875rem
 $font-size-med : 16px; //1rem
 $font-size-med-2: 18px; //1.0625rem
+$font-size-med-3: 21px; 
 $font-size-large : 24px; //1.4375rem
 $font-size-huge : 32px;
+$font-size-huge-2 : 36px;
+$font-size-xl: 40px;
+$font-size-xxl: 84px;
 
 
 /**
  * Spacing Defaults
  */  
  $pad : 8px;
- $pad-half : $pad/2;
- $pad-one-quarter: $pad/4;
- $pad-one-and-half : $pad*1.5;
- $pad-double : $pad*2;
- $pad-triple : $pad*3;
- $pad-quad :$pad*4;
+ $pad-half : $pad/2;  //4px
+ $pad-one-quarter: $pad/4;  //2px
+ $pad-one-and-half : $pad*1.5;  //12px
+ $pad-double : $pad*2;  //16px
+ $pad-double-and-half : $pad*2.5;  //20px
+ $pad-triple : $pad*3; // 24px
+ $pad-quad :$pad*4;  //32px
+ $pad-hexa: $pad*6; //48px
+ $pad-septa: $pad*7; //56px
+ $pad-octa: $pad*8; //64px
+ $pad-nona: $pad*9; //72px
+ $pad-deca: $pad*10; //80px
+ $pad-dodeca: $pad*12; //96px
 
 
  /*------------------------------------*\

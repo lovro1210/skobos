@@ -7,18 +7,42 @@ body{
     color: $color-text;
 }
 
+
+
 .container{
-    width: 100%;
-    height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    //width: 100%;
+    //height: 100vh;
     // display: flex;
     // flex-direction: column;
     display: grid;
     grid-template-rows: 80px auto 120px;
+    // max-width: 1070px;
+    // margin-left: auto;
+    // margin-right: auto;
+    // padding-left: 15px;
+    // padding-right: 15px;
 
     @include mq($from: mobile, $until: desktop) {
         grid-template-rows: 60px auto 120px;
     }
 }
+
+.wrapper{
+    width: 100%;
+    //height: 100vh;
+    // display: flex;
+    // flex-direction: column;
+    //display: grid;
+    //grid-template-rows: 80px auto 120px;
+    max-width: 1070px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 header{
     width: 100%;
     grid-row: 1/2;    
@@ -27,9 +51,14 @@ header{
 footer{
     width: 100%;
     grid-row: 3/4;    
-    background-color: $palette-tertiary;
+    //background-color: $palette-tertiary;
     // flex: 120px 0 0;
 }
+
+form{
+    margin-bottom: 0;
+}
+
 main{
     width: 100%;
     grid-row: 2/3;    
@@ -37,9 +66,17 @@ main{
     // flex: 200px 1 1;
 }
 
+ul {
+    list-style: none;
+}
+
 @import 'buttons';
+@import 'articles';
 @import '../components/Header/header.scss';
+@import '../components/Footer/footer.scss';
 @import '../components/SelectLanguage/language.scss';
 @import 'contact';
-@import 'loader'; 
+//@import 'loader'; 
+@import '../components/Loader/loader.scss';
+@import '../components/Carousel/carousel.scss';
 

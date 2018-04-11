@@ -18,12 +18,7 @@ class AboutUs extends React.Component {
   
   return(
     <main>
-      <section className="intro wrapper">
-        <h1 className="intro__title">Welcome to our <br/>Software Home.</h1>
-        <p className="intro__paragraph">We focus on outcomes. We get results. <br/>We build software solutions that last.</p>    
-      </section>
-      <section className="with-heading wrapper">
-        <div className="with-heading__heading">Our work</div>
+      <section className="wrapper">
         <div className="with-heading__content">
           <article className="panel">
             <div className="panel__content">
@@ -73,56 +68,7 @@ class AboutUs extends React.Component {
             </div>
           </div>
         </article>
-        <button className="btn btn--primary inverted btn--section" onClick={this.handleClick}>
-                See our work
-        </button>
       </section>
-
-      <div className="grey">
-      <section className="with-heading wrapper">
-        <div className="with-heading__heading">Hire talent</div>
-        <div className="with-heading__content">
-          <article className="row4">
-            <div className="row4__item">
-              <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row4__item-text">WEB DEVELOPERS</div>
-            </div>
-            <div className="row4__item">
-              <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row4__item-text">MOBILE DEVELOPERS</div>
-            </div>
-            <div className="row4__item">
-              <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row4__item-text">DESKTOP DEVELOPERS</div>
-            </div>
-            <div className="row4__item">
-              <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row4__item-text">SOFTWARE ENGINEERS</div>
-            </div>
-          </article>
-          <div className="section-title">Meet our team</div>
-          <article className="row4">
-            <div className="row4__item">
-              <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row4__item-text">WEB DEVELOPERS</div>
-            </div>
-            <div className="row4__item">
-              <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row4__item-text">MOBILE DEVELOPERS</div>
-            </div>
-            <div className="row4__item">
-              <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row4__item-text">DESKTOP DEVELOPERS</div>
-            </div>
-            <div className="row4__item">
-              <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row4__item-text">SOFTWARE ENGINEERS</div>
-            </div>
-          </article>
-
-        </div>
-      </section>
-      </div>
 
       <section className="with-heading wrapper">
         <div className="with-heading__heading">Contact us</div>
