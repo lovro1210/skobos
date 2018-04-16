@@ -1,13 +1,24 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import ContactPanel from '../components/ContactPanel';
+import Loader from '../components/Loader';
 
 class AboutUs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {emailError : "",
                     showSpinner : false}
+
+    this.spinnerHandler = this.spinnerHandler.bind(this)
   }
+
+  spinnerHandler() {
+    console.log('pozvan sam')
+    this.setState({
+      showSpinner: !this.state.showSpinner
+    })
+  }
+
   handleClick(e) {
     e.preventDefault();
     console.log('The button was clicked.');
@@ -18,6 +29,7 @@ class AboutUs extends React.Component {
   
   return(
     <main>
+      <Loader showSpinner={this.state.showSpinner} />
       <section className="intro wrapper">
         <h1 className="intro__title">Welcome to our <br/>Software Home.</h1>
         <p className="intro__paragraph">We focus on outcomes. We get results. <br/>We build software solutions that last.</p>    
@@ -73,9 +85,11 @@ class AboutUs extends React.Component {
             </div>
           </div>
         </article>
-        <button className="btn btn--primary inverted btn--section" onClick={this.handleClick}>
-                See our work
-        </button>
+        <div className="link">
+          <Link className="btn btn--primary inverted btn--section" to={`work`}>
+            See our work
+          </Link>
+        </div>
       </section>
 
       <div className="grey">
@@ -123,11 +137,11 @@ class AboutUs extends React.Component {
         </div>
       </section>
       </div>
-
+      
       <section className="with-heading wrapper">
         <div className="with-heading__heading">Contact us</div>
-        <div className="with-heading__content">
-            <ContactPanel emailHasError={this.state.emailHasError} sendMail={e => this.sendMail(es)}/>
+        <div className="with-heading__content">            
+            <ContactPanel spinnerHandler={this.spinnerHandler} contactType='1' />
         </div>
       </section>
       

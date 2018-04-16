@@ -170,3 +170,17 @@
    .link {
        display: flex;
    }
+
+   .upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .upload-btn-wrapper input[type=file] {
+    font-size: 1px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+  }

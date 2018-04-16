@@ -13,7 +13,15 @@ export default class Contact extends React.Component {
     super(props);
     this.state = {emailError : "",
                     showSpinner : false}
+    this.spinnerHandler = this.spinnerHandler.bind(this)
   }
+                
+  spinnerHandler() {
+    console.log('pozvan sam')
+    this.setState({
+      showSpinner: !this.state.showSpinner
+    })
+   }
 
 
   handleChange(e){
@@ -26,6 +34,7 @@ export default class Contact extends React.Component {
   }
 
   sendMail(data) {
+    console.log(data);
     this.setState({showSpinner: true}); 
     return fetch('http://159.89.105.56:8000/contact', {
         method: 'POST',
@@ -36,7 +45,7 @@ export default class Contact extends React.Component {
         }
     }).then(res => {
       if (res.status == 200) {
-        navigateTo('thanks');
+        navigateTo('aboutus');
       } else {
         this.setState({emailHasError: "contact__input-wrapper--error"});
         this.setState({showSpinner: false}); 
@@ -50,17 +59,17 @@ export default class Contact extends React.Component {
   render() {
     return (
       <main>
-      <section className="intro wrapper">
-        <h1 className="intro__title">Contact us! </h1>
-        <p className="intro__paragraph">Got an idea? We'll make it happen. Let's do great softwares together!</p>    
-      </section>
-      <section className="wrapper">        
-        <article className="contact">   
-          <Loader showSpinner={this.state.showSpinner} />
-          <ContactPanel emailHasError={this.state.emailHasError} sendMail={e => this.sendMail(es)}/>
-        </article>
-      </section>
-    </main>
+        <Loader showSpinner={this.state.showSpinner} />
+        <section className="intro wrapper">
+          <h1 className="intro__title">Contact us! </h1>
+          <p className="intro__paragraph">Got an idea? We'll make it happen. Let's do great softwares together!</p>    
+        </section>
+        <section className="wrapper">        
+          <article className="contact">   
+          <ContactPanel spinnerHandler={this.spinnerHandler} contactType='1'/>
+          </article>
+        </section>
+      </main>
     );
   }
 }

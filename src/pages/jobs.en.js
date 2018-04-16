@@ -7,7 +7,16 @@ class Jobs extends React.Component {
     super(props);
     this.state = {emailError : "",
                     showSpinner : false}
+    this.spinnerHandler = this.spinnerHandler.bind(this)
   }
+                
+  spinnerHandler() {
+    console.log('pozvan sam')
+    this.setState({
+      showSpinner: !this.state.showSpinner
+    })
+  }
+
   handleClick(e) {
     e.preventDefault();
   }
@@ -100,46 +109,7 @@ class Jobs extends React.Component {
       <section className="with-heading wrapper">
         <div className="with-heading__heading">Contact us</div>
         <div className="with-heading__content">
-          <article className="contact__panel">
-            <form action="" className="contact__form" onSubmit={this.handleSubmit}>
-              <div className={this.state.name === undefined || this.state.name.length > 0 ? 'contact__input-wrapper' : 'contact__input-wrapper contact__input-wrapper--error'}>
-                 <input maxLength="40" type="text" id="name" name="name" onChange={this.handleChange} placeholder="Full name *"/>
-                 <span className="contact__input-underline"></span>
-              </div>
-              <div className={this.state.email === undefined || this.state.email.length > 0  ? 'contact__input-wrapper ' + this.state.emailError : 'contact__input-wrapper contact__input-wrapper--error'}>
-                <input maxLength="50" type="text" id="email" name="email"  onChange={this.handleChange} placeholder="E-mail adress *"/>
-                <span className="contact__input-underline"></span>
-              </div>
-              <div className={this.state.phone === undefined || this.state.phone.length > 0  ? 'contact__input-wrapper ' : 'contact__input-wrapper contact__input-wrapper--error'}>
-                <input maxLength="20" type="text" id="number" name="number" onChange={this.handleChange} placeholder="Phone number *"/>
-                <span className="contact__input-underline"></span>
-              </div>
-              <div className={this.state.position === undefined || this.state.position.length > 0  ? 'contact__input-wrapper ' : 'contact__input-wrapper contact__input-wrapper--error'}>
-                <input maxLength="50" type="text" id="position" name="position" onChange={this.handleChange} placeholder="What position are you applying for? *"/>
-                <span className="contact__input-underline"></span>
-              </div>
-              <div className='contact__input-wrapper'>
-                <input maxLength="50" type="text" id="linkedin" name="linkedin" onChange={this.handleChange} placeholder="LinkedIn profile"/>
-                <span className="contact__input-underline"></span>
-                <div className="contact__input-remark">e.g. https://www.linkedin.com/in/jana-doe</div>
-              </div>
-              <div className='contact__input-wrapper'>
-                <input maxLength="50" type="text" id="website" name="website" onChange={this.handleChange} placeholder="Website"/>
-                <span className="contact__input-underline"></span>
-              </div>
-
-              <div className='contact__full-wrapper'>
-                <button className="btn btn--tertiary btn--wide inverted">
-                  Upload a CV *
-                </button>
-              </div>
-              <div className="contact__button-row">
-              <button className="btn btn--primary btn--wide inverted" type="submit" >
-                  Apply
-              </button>
-              </div>
-            </form> 
-          </article>
+        <ContactPanel spinnerHandler={this.spinnerHandler} contactType='2' />
         </div>
       </section>
       

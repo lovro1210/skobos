@@ -1,13 +1,22 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import ContactPanel from '../components/ContactPanel';
+import Loader from '../components/Loader';
 
 class HireTalent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {emailError : "",
                     showSpinner : false}
+    this.spinnerHandler = this.spinnerHandler.bind(this)
+  }                            
+  spinnerHandler() {
+    console.log('pozvan sam')
+    this.setState({
+      showSpinner: !this.state.showSpinner
+    })
   }
+
   handleClick(e) {
     e.preventDefault();
     console.log('The button was clicked.');
@@ -18,6 +27,7 @@ class HireTalent extends React.Component {
   
   return(
     <main>
+      <Loader showSpinner={this.state.showSpinner} />
       <section className="intro wrapper">
         <h1 className="intro__title">Our expertise. Your freedom.</h1>
         <p className="intro__paragraph">Connect the right talent with your business!</p>    
@@ -67,7 +77,7 @@ class HireTalent extends React.Component {
             </div>
             <div className="row4__item">
               <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
-              <div className="row3__item-text">DESKTOP DEVELOPERS</div>
+              <div className="row4__item-text">DESKTOP DEVELOPERS</div>
             </div>
             <div className="row4__item">
               <img src='http://via.placeholder.com/48x48' className="row4__item-icon" alt="pic"></img>
@@ -101,7 +111,7 @@ class HireTalent extends React.Component {
       <section className="with-heading wrapper">
         <div className="with-heading__heading">Contact us</div>
         <div className="with-heading__content">
-            <ContactPanel emailHasError={this.state.emailHasError} sendMail={e => this.sendMail(es)} showPackage/>
+            <ContactPanel spinnerHandler={this.spinnerHandler} contactType='1' showPackage/>
         </div>
       </section>
       

@@ -18,6 +18,7 @@
 @include b('with-heading'){
     position: relative;
     padding-top: 60px;
+    z-index: 1;
 
     @include e('heading'){
         position: absolute;
